@@ -1,36 +1,50 @@
 <template>
-  <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
+  <v-app style="background:#fdf7ec; margin-top: -8px"> 
+    <v-app-bar app
+      elevate-on-scroll
+      color="#fdf7ec">
+      <div id="header">
+        <div class="menu">
+          <ul>
+            <li class="logo"><router-link tag="li" to="/"><img src="logo.png"></router-link></li>
+            <li><router-link tag="li" to="/">HOME</router-link></li>
+          </ul>
+        </div>
+      </div>
       <v-spacer></v-spacer>
       <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
+        small
+        class="ma-1" 
+        outlined color="#fb9300"
       >
-        <span class="mr-2">Latest Release</span>
+        Active Wallet : {{ account }}
       </v-btn>
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
-    </v-content>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </v-content>    
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+
+import web3 from '../contracts/web3';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+  },
+  mounted() {
+    // this code snippet takes the account (wallet) that is currently active
+    web3.eth.getAccounts().then((accounts) => {
+      [this.account] = accounts;
+    });
   },
   data: () => ({
-    //
+    account: null,
   }),
 };
 </script>
