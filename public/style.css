@@ -1,0 +1,162 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,700);
+
+body,html{
+	margin:0;
+	font-family:'Montserrat',sans-serif;
+	text-transform:capitalize;
+	height:100%;
+	color:black;
+	letter-spacing:.18em;
+	font-size:100%;
+	overflow-y: scroll;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 0px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #6d6d6d; 
+}
+
+body{
+	background-size:cover;
+}
+
+#header{
+	position:absolute;
+	height: 50px;
+	display:block;
+	width: 100%;
+	z-index:9;
+	color: #f2f2f2;
+	}
+
+.menu ul{
+	display: inline-flex;
+	margin-top: 16px;
+}
+
+.menu ul li{
+	list-style: none;
+	margin: 0 16px;
+	color: #fb9300;
+	cursor: pointer;
+	letter-spacing:.10em;
+	text-decoration: none;
+}
+
+.logo img{
+	margin-top: -15px;
+	margin-right: -100px;
+	width: 48px;
+}
+
+.login-signup-btn{
+	top: 32px;
+	right: 80px;
+	padding: 0.75em;
+	color: #fb9300;
+	border: 1px solid;
+	border-color: #fb9300;
+	margin-top: -16px;
+	position: absolute;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+#home-container{
+	display:grid;grid-template-columns:.16fr 1fr 1fr .48fr;
+	grid-gap:8px;
+	grid-template-areas:". left right .";
+	height:100%;
+}
+
+#inner{
+	animation:monitorInLeft 1s ease-in-out forwards;
+	grid-area:left;
+	align-self:center;
+	justify-content:center;
+}
+
+#illustration{
+	grid-area:right;
+	align-self:center;
+	justify-content:center;
+	width:150%;
+}
+
+img#logo{
+	width:200px; 
+	marker-start: -100px;
+}
+
+h1{
+	text-transform:uppercase;
+	color:#fb6d00;
+	margin-bottom:.2em;
+}
+
+p.subtitle{
+	color:#858585;
+	margin-top:0;
+}
+
+a.startup-btn{
+	background-color:#fb9300;
+	padding:1em;
+	color:#fff;
+	margin-top:0em;
+	display:inline-block;
+	border-radius:5px;
+	text-decoration:none;
+}
+
+a.ngo-btn{
+	padding:1em;
+	color:#fb9300;;
+	border-color: #fb9300;
+	margin-top:0em;
+	display:inline-block;
+	border: 1px solid;
+	border-radius:5px;
+	text-decoration:none;
+}
+
+#blockchain{
+	animation:monitorIn 1s ease-in-out forwards;
+	opacity:0;
+}
+
+@keyframes monitorIn{
+	from{
+		transform:translateX(30px);
+		opacity:0;
+	}
+
+	to{
+		transform:translateX(0);
+		opacity:1;
+	}
+}
+
+@keyframes monitorInLeft{
+	from{
+		transform:translateX(-30px);
+		opacity:0;
+	}
+
+	to{
+		transform:translateX(0);
+		opacity:1;
+	}
+}
